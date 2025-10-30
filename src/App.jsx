@@ -1,28 +1,34 @@
-import { useState } from 'react'
+import Navbar from "./components/Navbar";
+import HeroUploader from "./components/HeroUploader";
+import Features from "./components/Features";
+import Pricing from "./components/Pricing";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen flex flex-col bg-white">
+      <Navbar />
+      <main className="flex-1">
+        <HeroUploader />
+        <Features />
+        <div id="convert" className="max-w-6xl mx-auto px-4 -mt-6 mb-10">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6">
+            <h3 className="text-lg font-semibold text-slate-900">Free hosting & monetization tips</h3>
+            <ul className="mt-3 text-sm text-slate-700 list-disc pl-5 space-y-1">
+              <li>Use free hosting like Vercel or Netlify for the website and Render or Deta for server APIs.</li>
+              <li>Integrate a free translator like LibreTranslate via your backend to avoid exposing keys.</li>
+              <li>Add Google AdSense once your domain is approved. Place responsive ads in non-intrusive areas.</li>
+              <li>Delete files automatically after completion to protect privacy.</li>
+            </ul>
+          </div>
         </div>
-      </div>
+        <Pricing />
+      </main>
+      <footer className="border-t border-slate-200 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+          <p className="font-medium">PolyDocs</p>
+          <p className="mt-1">Built for students: simple, fast, and privacy-first.</p>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
-
-export default App
